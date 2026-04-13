@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Gift — Overlay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #ff00aa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow: hidden;
+        }
+        .top-gift {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            gap: clamp(12px, 3vw, 20px);
+        }
+        .top-gift__title {
+            font-size: clamp(1.5rem, 5vw, 2.25rem);
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff200 0%, #fff566 35%, #40e0ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        .top-gift__visual {
+            width: min(200px, 48vw);
+            height: min(200px, 48vw);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .top-gift__visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .top-gift__emoji-fallback {
+            font-size: clamp(4rem, 22vw, 7rem);
+            line-height: 1;
+        }
+        .top-gift__user {
+            max-width: min(360px, 92vw);
+            font-size: clamp(1.75rem, 6vw, 2.75rem);
+            font-weight: 800;
+            color: #fff;
+            text-align: center;
+            line-height: 1.15;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .top-gift__coins {
+            font-size: clamp(1rem, 3.5vw, 1.35rem);
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-gift" id="root">
+        <div class="top-gift__title">MEJOR REGALO</div>
+        <div class="top-gift__visual">
+            <img id="gift-img" src="video/mejoregalo.png" alt="" width="512" height="512" decoding="async">
+        </div>
+        <div class="top-gift__user" id="username">PreviewFan</div>
+        <div class="top-gift__coins" id="coins">7299 COINS</div>
+    </div>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var user = params.get('user');
+            var coins = params.get('coins');
+            var tc1 = params.get('tc1');
+            var giftUrl = params.get('gift') || params.get('img');
+            if (giftUrl) {
+                try {
+                    document.getElementById('gift-img').src = decodeURIComponent(giftUrl);
+                } catch (e) {
+                    document.getElementById('gift-img').src = giftUrl;
+                }
+            }
+            if (user) {
+                document.getElementById('username').textContent = user;
+            }
+            if (coins !== null && coins !== '') {
+                var n = parseInt(coins, 10);
+                document.getElementById('coins').textContent = (isNaN(n) ? coins : n) + ' COINS';
+            }
+            if (tc1) {
+                var hex = tc1.replace(/^#/, '');
+                if (/^[0-9a-fA-F]{6}$/.test(hex)) {
+                    document.documentElement.style.setProperty('--accent', '#' + hex);
+                }
+            }
+            var giftImg = document.getElementById('gift-img');
+            if (giftImg) {
+                giftImg.addEventListener('error', function once() {
+                    giftImg.removeEventListener('error', once);
+                    var p = giftImg.parentNode;
+                    if (!p) return;
+                    p.removeChild(giftImg);
+                    var d = document.createElement('div');
+                    d.className = 'top-gift__emoji-fallback';
+                    d.textContent = '\u{1FA90}';
+                    p.appendChild(d);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

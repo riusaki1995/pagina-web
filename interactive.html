@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livecoins | Juega. Compite. Domina.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="interactive-styles.css?v=8">
+</head>
+<body>
+
+    <nav class="nav-interactive">
+        <div class="logo-interactive">Livecoins</div>
+        <div class="nav-actions">
+            <button type="button" class="btn-icon" id="btn-nav-download" aria-label="Ir a la descarga">📥</button>
+            <select class="lang-select" id="lang-select" aria-label="Idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+            <button type="button" class="btn-icon" id="btn-theme-toggle" aria-label="Cambiar tema claro u oscuro">🌓</button>
+        </div>
+    </nav>
+
+    <main>
+    <section class="hero-interactive" id="inicio">
+        <div class="hero-content">
+            <h1><span data-i18n="hero_h1_a">Juega. Compite.</span><br><span class="text-green-glow" data-i18n="hero_h1_b">Domina.</span></h1>
+            <p data-i18n="hero_sub">La plataforma para mejorar tus streams. Experiencia interactiva para streamers. ¡Sé una leyenda!</p>
+            
+            <div class="hero-buttons" id="descarga">
+                <button type="button" class="btn-purple btn-download-main" data-i18n="hero_dl">Descargar v1.67.0 ➔</button>
+                <button type="button" class="btn-outline-dark" data-i18n="hero_mini">Ver Mini-Juegos</button>
+            </div>
+            
+            <div class="user-stats">
+                <div class="avatars">
+                    <img src="https://i.pravatar.cc/30?img=1" alt="User">
+                    <img src="https://i.pravatar.cc/30?img=2" alt="User">
+                    <img src="https://i.pravatar.cc/30?img=3" alt="User">
+                </div>
+                <span data-i18n="hero_streamers">+900 streamers</span>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="hero-image__media">
+                <img src="assets/interactive-controller-nobg.png" alt="Mando Interactive personalizado" data-i18n-alt="img_alt" width="900" height="900" loading="eager" decoding="async">
+            </div>
+        </div>
+    </section>
+
+    <section class="installation-section" aria-labelledby="installation-heading">
+        <div class="installation-section__inner">
+            <h2 id="installation-heading" class="installation-section__title">
+                <span data-i18n="install_title_1">Fácil </span><span class="installation-section__title-accent" data-i18n="install_title_2">Instalación</span>
+            </h2>
+
+            <div class="installation-disclaimer" role="note">
+                <p data-i18n="install_disclaimer">Esta aplicación no está firmada digitalmente debido al alto costo de los certificados. Planeamos adquirir uno en el futuro, pero te aseguramos que la aplicación es completamente segura.</p>
+            </div>
+
+            <div class="installation-grid">
+                <div class="installation-copy">
+                    <p data-i18n="install_p1">La descarga se realiza desde el repositorio de GitHub de la aplicación.</p>
+                    <p data-i18n="install_p2">Durante la instalación, es normal que Windows muestre un mensaje advirtiendo que la aplicación es desconocida. Esto ocurre porque no está certificada digitalmente, lo que es similar a instalar un APK fuera de Google Play.</p>
+                    <p data-i18n-html="install_p3_html">Para continuar, simplemente haz clic en <strong>«Más información»</strong> y luego en el botón <strong>«Ejecutar de todas formas»</strong>.</p>
+                </div>
+
+                <div class="installation-visual" aria-hidden="true">
+                    <div class="smartscreen-stack">
+                        <div class="smartscreen-deco">
+                            <span class="smartscreen-deco__star" aria-hidden="true">✦</span>
+                            <span class="smartscreen-deco__star smartscreen-deco__star--2" aria-hidden="true">✦</span>
+                            <span class="smartscreen-deco__star smartscreen-deco__star--3" aria-hidden="true">✦</span>
+                            <svg class="smartscreen-deco__swirl" viewBox="0 0 120 80" aria-hidden="true"><path fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" d="M10 40 Q30 10 60 40 T110 40"/></svg>
+                        </div>
+
+                        <article class="smartscreen smartscreen--expanded">
+                            <header class="smartscreen__titlebar" data-i18n="ss_title">Windows protegió su PC</header>
+                            <div class="smartscreen__body">
+                                <p class="smartscreen__lead" data-i18n="ss_body">SmartScreen de Microsoft Defender evitó que se iniciara una aplicación desconocida. Ejecutar esta aplicación puede suponer un riesgo para tu PC.</p>
+                                <p class="smartscreen__meta"><span class="smartscreen__label" data-i18n="ss_app">Aplicación:</span> interactive-1.1.6-setup.exe</p>
+                                <p class="smartscreen__meta"><span class="smartscreen__label" data-i18n="ss_pub">Editor:</span> <span data-i18n="ss_unknown">Editor desconocido</span></p>
+                            </div>
+                            <footer class="smartscreen__footer">
+                                <button type="button" class="smartscreen__btn smartscreen__btn--secondary" data-i18n="ss_no">No ejecutar</button>
+                                <button type="button" class="smartscreen__btn smartscreen__btn--primary" data-i18n="ss_run">Ejecutar de todas formas</button>
+                            </footer>
+                        </article>
+
+                        <article class="smartscreen smartscreen--initial">
+                            <header class="smartscreen__titlebar" data-i18n="ss_title">Windows protegió su PC</header>
+                            <div class="smartscreen__body">
+                                <p data-i18n="ss_body">SmartScreen de Microsoft Defender evitó que se iniciara una aplicación desconocida. Ejecutar esta aplicación puede suponer un riesgo para tu PC.</p>
+                                <p><a class="smartscreen__link" href="#" data-i18n="ss_more">Más información</a></p>
+                            </div>
+                            <footer class="smartscreen__footer smartscreen__footer--single">
+                                <button type="button" class="smartscreen__btn smartscreen__btn--solo" data-i18n="ss_no">No ejecutar</button>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <h2 class="section-title"><span data-i18n="feat_title_1">Características </span><span class="text-green-glow" data-i18n="feat_title_2">Destacadas</span></h2>
+        <p class="section-subtitle" data-i18n="feat_sub">Descubre por qué Interactive es la aplicación preferida por cientos de streamers en todo el mundo.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon-box blue">⚡</div>
+                <h3 data-i18n="feat_1h">Overlays Personalizables</h3>
+                <p data-i18n="feat_1p">Accede a varios widgets personalizables para mejorar la experiencia de tus espectadores.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon-box orange">🔔</div>
+                <h3 data-i18n="feat_2h">Alertas</h3>
+                <p data-i18n="feat_2p">Crea alertas que hagan sentir únicos a tus espectadores y los animen a volver.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon-box purple-icon">🧩</div>
+                <h3 data-i18n="feat_3h">Minijuegos Interactivos</h3>
+                <p data-i18n="feat_3p">Agrega contenido más diverso y rompe la rutina del directo.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon-box yellow">🚀</div>
+                <h3 data-i18n="feat_4h">Soporte</h3>
+                <p data-i18n="feat_4p">¿Dudas? Te ayudamos en todo para que arranques sin estrés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="planes" aria-labelledby="pricing-heading">
+        <div class="pricing-section__inner">
+            <h2 id="pricing-heading" class="pricing-section__title">
+                <span data-i18n="pricing_title_1">Planes </span><span class="text-green-glow" data-i18n="pricing_title_2">Livecoins</span>
+            </h2>
+            <p class="pricing-section__subtitle" data-i18n="pricing_sub">Compara el acceso gratuito, Premium Plus o desbloquea todo al unirte a la agencia.</p>
+
+            <div class="pricing-grid">
+                <article class="pricing-card pricing-card--free">
+                    <h3 class="pricing-card__name" data-i18n="plan_free_name">FREE</h3>
+                    <p class="pricing-card__tagline" data-i18n="plan_free_tag">Acceso al panel en modo gratuito</p>
+                    <p class="pricing-card__price"><span data-i18n="plan_free_price">$0</span></p>
+                    <ul class="pricing-card__list">
+                        <li><span data-i18n="plan_free_f1">Hasta 5 alertas sonoras</span></li>
+                        <li><span data-i18n="plan_free_f2">Hasta 5 acciones</span></li>
+                        <li><span data-i18n="plan_free_f3">Overlays y perfiles básicos</span></li>
+                        <li><span data-i18n="plan_free_f4">Hasta 2 perfiles en el panel</span></li>
+                    </ul>
+                    <div class="pricing-card__footer">
+                        <span class="pricing-card__note" data-i18n="plan_free_note">Incluido sin suscripción de pago</span>
+                    </div>
+                </article>
+
+                <article class="pricing-card pricing-card--agency">
+                    <span class="pricing-card__badge pricing-card__badge--gratis" data-i18n="plan_agency_badge">SIN COSTE</span>
+                    <h3 class="pricing-card__name pricing-card__name--agency" data-i18n="plan_agency_name">AGENCIA</h3>
+                    <p class="pricing-card__agency-highlight" data-i18n="plan_agency_highlight">Unirte a la agencia no tiene precio.</p>
+                    <p class="pricing-card__agency-text" data-i18n="plan_agency_body">Al unirte a la agencia se desbloquea el modo premium y todos los beneficios del modo premium.</p>
+                    <p class="pricing-card__list-label" data-i18n="plan_agency_list_label">Beneficios incluidos</p>
+                    <ul class="pricing-card__list pricing-card__list--agency">
+                        <li><span data-i18n="plan_premium_f1">Todo lo del plan Free +</span></li>
+                        <li><span data-i18n="plan_premium_f2">Alertas y acciones ilimitadas</span></li>
+                        <li><span data-i18n="plan_premium_f3">Hasta 30 perfiles en el panel</span></li>
+                        <li><span data-i18n="plan_premium_f4">Prioridad y beneficios según tu campaña</span></li>
+                        <li><span data-i18n="plan_premium_f5">Rol Premium Plus en Discord (al coordinar pago)</span></li>
+                    </ul>
+                </article>
+
+                <article class="pricing-card pricing-card--premium">
+                    <span class="pricing-card__badge" data-i18n="plan_badge_popular">MÁS POPULAR</span>
+                    <h3 class="pricing-card__name pricing-card__name--gold" data-i18n="plan_premium_name">PREMIUM PLUS</h3>
+                    <p class="pricing-card__tagline" data-i18n="plan_premium_tag">Panel completo + periodo de suscripción con cuenta atrás</p>
+                    <p class="pricing-card__price pricing-card__price--premium">
+                        <span data-i18n="plan_premium_price">$10</span><span class="pricing-card__period" data-i18n="plan_premium_period"> / mes</span>
+                    </p>
+                    <ul class="pricing-card__list">
+                        <li><span data-i18n="plan_premium_f1">Todo lo del plan Free +</span></li>
+                        <li><span data-i18n="plan_premium_f2">Alertas y acciones ilimitadas</span></li>
+                        <li><span data-i18n="plan_premium_f3">Hasta 30 perfiles en el panel</span></li>
+                        <li><span data-i18n="plan_premium_f4">Prioridad y beneficios según tu campaña</span></li>
+                        <li><span data-i18n="plan_premium_f5">Rol Premium Plus en Discord (al coordinar pago)</span></li>
+                    </ul>
+                    <div class="pricing-card__footer">
+                        <a href="#" class="pricing-card__cta pricing-card__cta--subscribe"><span class="pricing-card__cta-icon" aria-hidden="true">💳</span> <span data-i18n="plan_premium_cta">Suscribirse</span></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section" id="comunidad">
+        <div class="community-box">
+            <h2 data-i18n="comm_title">¿Listo para unirte a la comunidad?</h2>
+            <p data-i18n="comm_sub">Forma parte de la comunidad de streamers que ya están mejorando su contenido con Livecoins. ¡No te quedes atrás!</p>
+
+            <div class="contact-buttons">
+                <a href="https://discord.gg/vHS5mVr6Kt" class="btn-contact btn-contact--discord" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-contact__icon" aria-hidden="true">
+                        <svg class="btn-contact__svg" viewBox="0 0 24 24" width="32" height="32" role="img"><path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </span>
+                    <span class="btn-contact__label">
+                        <span class="btn-contact__line" data-i18n="contact_line">Contáctame en</span>
+                        <span class="btn-contact__platform">Discord</span>
+                    </span>
+                </a>
+                <a href="https://www.tiktok.com/@streamersfederation?_r=1&amp;_t=ZS-95RPrbvjQDo" class="btn-contact btn-contact--tiktok" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-contact__icon" aria-hidden="true">
+                        <svg class="btn-contact__svg btn-contact__svg--tiktok" viewBox="0 0 24 24" width="32" height="32" role="img" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="tiktok-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#25F4EE"/>
+                                    <stop offset="100%" stop-color="#FE2C55"/>
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#tiktok-brand-grad)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.35.08-2.7.09-4.05.02-2.44-.01-4.89.02-7.33z"/>
+                        </svg>
+                    </span>
+                    <span class="btn-contact__label">
+                        <span class="btn-contact__line" data-i18n="contact_line">Contáctame en</span>
+                        <span class="btn-contact__platform">TikTok</span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <p><span class="icon">💬</span> <span data-i18n="contact_info">¿Tienes problemas con el enlace? Envíame una solicitud a:</span> <span class="tag">streamersfederation</span></p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="interactive.js?v=6" defer></script>
+</body>
+</html>

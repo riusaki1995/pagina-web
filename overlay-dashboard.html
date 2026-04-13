@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livecoins — Vista previa overlay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --panel: #12161f;
+            --border: rgba(88, 100, 140, 0.45);
+            --muted: #7a8496;
+            --text: #e8eaed;
+            --green: #22c55e;
+            --green-hover: #16a34a;
+            --btn-gray: #2a3140;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+        .dash {
+            display: grid;
+            grid-template-columns: minmax(280px, 420px) 1fr;
+            gap: 32px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 28px 48px;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .dash { grid-template-columns: 1fr; }
+        }
+        .controls h1 {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+        .url-row {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
+            margin-bottom: 12px;
+        }
+        .url-row input {
+            flex: 1;
+            min-width: 0;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 12px;
+            color: var(--text);
+            font-family: ui-monospace, monospace;
+        }
+        .url-row input:focus {
+            outline: none;
+            border-color: rgba(96, 165, 250, 0.55);
+        }
+        .btn {
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 10px 16px;
+            white-space: nowrap;
+        }
+        .btn-copy {
+            background: var(--green);
+            color: #052e16;
+        }
+        .btn-copy:hover { background: var(--green-hover); color: #fff; }
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-reset {
+            background: var(--btn-gray);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-reset:hover { background: #343d52; }
+        .btn-test {
+            background: var(--green);
+            color: #052e16;
+        }
+        .btn-test:hover { background: var(--green-hover); color: #fff; }
+
+        .preview-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            min-height: 520px;
+        }
+        .preview-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+        .preview-frame {
+            flex: 1;
+            min-height: 520px;
+            border-radius: 14px;
+            border: 1px solid rgba(60, 50, 100, 0.65);
+            background:
+                radial-gradient(ellipse 80% 70% at 50% 42%, rgba(90, 60, 130, 0.35) 0%, transparent 62%),
+                linear-gradient(180deg, #1a1028 0%, #120c1c 48%, #0a0610 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                0 20px 50px rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 4vw, 32px);
+        }
+        .preview-frame iframe {
+            width: 100%;
+            max-width: 380px;
+            height: min(520px, 72vh);
+            min-height: 420px;
+            border: none;
+            display: block;
+            background: #000;
+            border-radius: 12px;
+            box-shadow:
+                0 0 0 1px rgba(80, 60, 120, 0.5),
+                0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="dash">
+        <div class="controls">
+            <h1>URL del overlay</h1>
+            <div class="url-row">
+                <input type="text" id="overlay-url" readonly value="" aria-label="URL del overlay">
+                <button type="button" class="btn btn-copy" id="btn-copy">Copiar URL</button>
+            </div>
+            <div class="btn-row">
+                <button type="button" class="btn btn-reset" id="btn-reset">Reset</button>
+                <button type="button" class="btn btn-test" id="btn-test">Testear</button>
+            </div>
+        </div>
+        <div class="preview-wrap">
+            <span class="preview-label">VISTA PREVIA</span>
+            <div class="preview-frame">
+                <iframe id="preview-if" title="Vista previa del overlay Top Gift" src="overlay_top_gift.html?user=PreviewFan&coins=7299&v=3"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var DEFAULT_USER = 'PreviewFan';
+            var DEFAULT_COINS = '7299';
+            var base = window.location.pathname.replace(/[^/]+$/, '');
+            var overlayPath = base + 'overlay_top_gift.html';
+
+            function buildUrl(user, coins) {
+                var u = new URL(overlayPath, window.location.href);
+                u.searchParams.set('user', user || DEFAULT_USER);
+                u.searchParams.set('coins', coins != null ? String(coins) : DEFAULT_COINS);
+                u.searchParams.set('overlayv', '5');
+                u.searchParams.set('tr', '1');
+                u.searchParams.set('tc1', 'ff00aa');
+                u.searchParams.set('v', '3');
+                return u.toString();
+            }
+
+            function iframeSrc(user, coins) {
+                return buildUrl(user, coins);
+            }
+
+            var input = document.getElementById('overlay-url');
+            var iframe = document.getElementById('preview-if');
+
+            function sync() {
+                input.value = iframe.src;
+            }
+
+            if (!iframe.getAttribute('src')) {
+                iframe.src = iframeSrc(DEFAULT_USER, DEFAULT_COINS);
+            }
+            iframe.addEventListener('load', sync);
+            sync();
+
+            document.getElementById('btn-copy').addEventListener('click', function () {
+                input.select();
+                input.setSelectionRange(0, 99999);
+                try {
+                    navigator.clipboard.writeText(input.value);
+                } catch (e) {
+                    document.execCommand('copy');
+                }
+            });
+
+            document.getElementById('btn-reset').addEventListener('click', function () {
+                iframe.src = iframeSrc(DEFAULT_USER, DEFAULT_COINS);
+            });
+
+            document.getElementById('btn-test').addEventListener('click', function () {
+                iframe.src = iframeSrc('streamersfederation', '5');
+            });
+        })();
+    </script>
+</body>
+</html>
