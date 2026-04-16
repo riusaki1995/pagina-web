@@ -12,7 +12,7 @@
             hero_h1_a: 'Juega. Compite.',
             hero_h1_b: 'Domina.',
             hero_sub: 'La plataforma para mejorar tus streams. Experiencia interactiva para streamers. ¡Sé una leyenda!',
-            hero_dl: 'Descargar v1.0.76 ➔',
+            hero_dl: 'Descargar v1.0.77 ➔',
             hero_mini: 'Ver Mini-Juegos',
             hero_streamers: '+900 streamers',
             img_alt: 'Mando Interactive personalizado',
