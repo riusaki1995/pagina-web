@@ -1,38 +1,39 @@
-/* --- VARIABLES BASE (gris oscuro, sin negro puro) --- */
+/* --- VARIABLES (paleta tipo dashboard: navy + neón cian / púrpura / magenta / ámbar) --- */
 :root {
-    --bg-main: #2c3138;
-    --bg-card: #363d47;
-    --bg-card-hover: #3f4753;
-    --bg-darker: #23282e;
+    --bg-main: #080c14;
+    --bg-card: #111827;
+    --bg-card-hover: #1e293b;
+    --bg-darker: #05080f;
 
-    --text-main: #e8eaed;
-    --text-muted: #9aa3af;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
 
-    --accent-green: #34d399;
-    --accent-cyan: #22d3ee;
-    --accent-pink: #f472b6;
+    --neon-blue: #00baff;
+    --accent-green: #2dd4bf;
+    --accent-cyan: #00baff;
+    --accent-pink: #ec4899;
     --accent-red: #f87171;
-    --accent-gold: #fbbf24;
-    --accent-purple: #c084fc;
+    --accent-gold: #f59e0b;
+    --accent-purple: #a855f7;
 
-    --border-color: #4b5563;
-    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.28);
+    --border-color: rgba(148, 163, 184, 0.14);
+    --shadow-soft: 0 4px 28px rgba(0, 0, 0, 0.45);
 
     /* Tarjeta Tech */
-    --bg-tech-card: radial-gradient(circle at 75% 50%, #243548 0%, #2c3138 88%);
-    --accent-green-tech: #34d399;
-    --accent-green-bg: rgba(52, 211, 153, 0.12);
-    --accent-check-bg: rgba(52, 211, 153, 0.28);
+    --bg-tech-card: radial-gradient(circle at 75% 50%, #172554 0%, #080c14 88%);
+    --accent-green-tech: #00baff;
+    --accent-green-bg: rgba(0, 186, 255, 0.1);
+    --accent-check-bg: rgba(0, 186, 255, 0.28);
 
     /* Ecosistema Gaming */
     --eco-red: #fb7185;
     --eco-red-dim: rgba(251, 113, 133, 0.45);
-    --eco-card: #363d47;
-    --eco-border: #4b5563;
+    --eco-card: #111827;
+    --eco-border: rgba(148, 163, 184, 0.16);
 
     /* Botón claro sobre UI oscura */
     --btn-surface: #e2e8f0;
-    --btn-surface-text: #1e293b;
+    --btn-surface-text: #0f172a;
 }
 
 /* --- RESET Y TIPOGRAFÍA --- */
@@ -82,8 +83,8 @@ ul {
 .flex-between { display: flex; justify-content: space-between; align-items: center; }
 
 /* Gradientes de Texto */
-.text-gradient { background: linear-gradient(90deg, #34d399, #22d3ee); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.text-gradient-pk { background: linear-gradient(90deg, #22d3ee, #f472b6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient { background: linear-gradient(90deg, #00baff, #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient-pk { background: linear-gradient(90deg, #00baff, #ec4899, #f59e0b); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* Tipografía de Secciones */
 .section-title { font-size: 40px; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
@@ -91,15 +92,25 @@ ul {
 .italic-title { font-style: italic; font-weight: 900; font-size: 48px; }
 
 /* --- NAVEGACIÓN --- */
-.navbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 50px; background-color: rgba(44, 49, 56, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-soft); }
+.navbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 50px; background-color: rgba(8, 12, 20, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-soft); }
+
+.navbar-livecoins-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
 .nav-livecoins {
     flex-shrink: 0;
     font-size: 13px;
     font-weight: 800;
     padding: 10px 18px;
     border-radius: 999px;
-    border: 1px solid var(--accent-green);
-    color: var(--accent-green);
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
     text-decoration: none;
     letter-spacing: 0.02em;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -107,8 +118,18 @@ ul {
     max-width: 100%;
 }
 .nav-livecoins:hover {
-    background-color: rgba(52, 211, 153, 0.12);
-    color: #6ee7b7;
+    background-color: rgba(0, 186, 255, 0.12);
+    color: #7dd3fc;
+}
+
+.nav-livecoins--web {
+    border-color: var(--accent-purple);
+    color: #d8b4fe;
+}
+
+.nav-livecoins--web:hover {
+    background-color: rgba(168, 85, 247, 0.14);
+    color: #ede9fe;
 }
 
 /* --- BOTONES --- */
@@ -119,7 +140,7 @@ button:hover { transform: scale(1.05); }
 .btn-green { background: var(--accent-green); color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: 800; }
 .btn-cyan { background: var(--accent-cyan); color: #fff; padding: 15px 30px; border-radius: 10px; font-weight: 800; }
 .btn-red { background: var(--accent-red); color: white; padding: 15px 30px; border-radius: 50px; font-weight: 800; }
-.btn-pk { background: linear-gradient(90deg, #22d3ee, #f472b6); color: white; padding: 15px 40px; border-radius: 50px; font-weight: 800; border: none; }
+.btn-pk { background: linear-gradient(90deg, #00baff, #a855f7, #ec4899); color: white; padding: 15px 40px; border-radius: 50px; font-weight: 800; border: none; }
 .btn-gold { background: var(--accent-gold); color: #1e293b; padding: 15px 40px; border-radius: 50px; font-weight: 800; }
 a.btn-anchor {
     display: inline-block;
@@ -132,7 +153,7 @@ a.btn-anchor:hover {
 .large { font-size: 18px; }
 
 /* --- HERO --- */
-.hero { text-align: center; background: radial-gradient(circle at 50% -25%, #1a3d32 0%, var(--bg-main) 58%); }
+.hero { text-align: center; background: radial-gradient(circle at 50% -25%, rgba(0, 186, 255, 0.14) 0%, var(--bg-main) 58%); }
 .hero h1 { font-size: 60px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
 .hero p { max-width: 600px; margin: 0 auto 30px auto; color: var(--text-muted); font-size: 18px; }
 .badge { display: inline-block; border: 1px solid var(--border-color); padding: 5px 15px; border-radius: 50px; font-size: 12px; color: var(--text-muted); }
@@ -149,15 +170,15 @@ a.btn-anchor:hover {
 .card:hover { background-color: var(--bg-card-hover); }
 
 /* Variantes de Bordes */
-.card-outline-green { border: 1px solid rgba(52, 211, 153, 0.4); }
-.card-outline-green:hover { border-color: var(--accent-green); }
-.card-outline-pink { border: 1px solid rgba(244, 114, 182, 0.4); }
+.card-outline-green { border: 1px solid rgba(0, 186, 255, 0.38); }
+.card-outline-green:hover { border-color: var(--accent-cyan); }
+.card-outline-pink { border: 1px solid rgba(236, 72, 153, 0.42); }
 .card-outline-pink:hover { border-color: var(--accent-pink); }
 .border-left-green { border-left: 4px solid var(--accent-green); }
 .border-left-white { border-left: 4px solid var(--text-main); }
 .border-left-purple { border-left: 4px solid var(--accent-purple); }
 .border-red { border: 1px solid rgba(248, 113, 113, 0.45); }
-.border-gold { border: 1px solid rgba(251, 191, 36, 0.5); }
+.border-gold { border: 1px solid rgba(245, 158, 11, 0.45); }
 
 /* Reto 90 días — números con brillo y movimiento */
 .reto-beginner-notice {
@@ -275,9 +296,9 @@ a.btn-anchor:hover {
     margin: 0 auto 16px;
     padding: 8px 18px;
     border-radius: 999px;
-    background: rgba(52, 211, 153, 0.12);
-    border: 1px solid rgba(52, 211, 153, 0.35);
-    color: var(--accent-green);
+    background: rgba(0, 186, 255, 0.1);
+    border: 1px solid rgba(0, 186, 255, 0.35);
+    color: var(--accent-cyan);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -298,7 +319,7 @@ a.btn-anchor:hover {
     overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    background: #1a1d22;
+    background: #0c1018;
 }
 
 .livecoins-app-img {
@@ -321,14 +342,14 @@ a.btn-anchor:hover {
 }
 
 .livecoins-app-link {
-    color: var(--accent-green);
+    color: var(--accent-cyan);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
 .livecoins-app-link:hover {
-    color: #6ee7b7;
+    color: #7dd3fc;
 }
 
 #descargar-livecoins {
@@ -869,11 +890,11 @@ a.btn-anchor:hover {
 
 /* --- ETIQUETAS (TAGS) --- */
 .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-.tags span { background: rgba(52, 211, 153, 0.12); color: #6ee7b7; padding: 5px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; border: 1px solid rgba(52, 211, 153, 0.35); }
+.tags span { background: rgba(0, 186, 255, 0.1); color: #7dd3fc; padding: 5px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; border: 1px solid rgba(0, 186, 255, 0.32); }
 .tags.gray span { background: var(--bg-darker); color: var(--text-muted); border-color: var(--border-color); }
 .tags.red span { background: rgba(248, 113, 113, 0.12); color: #fca5a5; border-color: rgba(248, 113, 113, 0.35); }
-.tags.blue span { background: rgba(34, 211, 238, 0.1); color: #67e8f9; border-color: rgba(34, 211, 238, 0.35); }
-.tags.purple span { background: rgba(192, 132, 252, 0.12); color: #d8b4fe; border-color: rgba(192, 132, 252, 0.35); }
+.tags.blue span { background: rgba(0, 186, 255, 0.1); color: #7dd3fc; border-color: rgba(0, 186, 255, 0.32); }
+.tags.purple span { background: rgba(168, 85, 247, 0.12); color: #d8b4fe; border-color: rgba(168, 85, 247, 0.35); }
 
 /* --- NUEVA TARJETA TECNOLÓGICA (Mano Cibernética) --- */
 .grid-2-columns {
@@ -950,7 +971,7 @@ a.btn-anchor:hover {
     height: auto;
     object-fit: contain;
     /* Un ligero resplandor azul/cian para que combine con la mano de neón */
-    filter: drop-shadow(0 8px 24px rgba(8, 145, 178, 0.18));
+    filter: drop-shadow(0 8px 24px rgba(0, 186, 255, 0.22));
 }
 
 /* --- LISTAS --- */
@@ -960,7 +981,7 @@ a.btn-anchor:hover {
 
 /* --- CONTENEDORES CON FONDO ESPECIAL --- */
 .gradient-red-bg { background: linear-gradient(180deg, #3f2a2c 0%, #2c2628 100%); border-color: rgba(248, 113, 113, 0.4); }
-.gradient-green-bg { background: linear-gradient(180deg, #1e2f2a 0%, #23282e 100%); border-color: rgba(52, 211, 153, 0.45); }
+.gradient-green-bg { background: linear-gradient(180deg, #0f172a 0%, #05080f 100%); border-color: rgba(0, 186, 255, 0.4); }
 .bg-dark { background-color: var(--bg-darker); }
 
 /* --- FAQ ACCORDION --- */
@@ -987,11 +1008,11 @@ a.btn-anchor:hover {
 }
 
 .req-item:hover {
-    background-color: rgba(6, 78, 82, 0.35);
-    border-color: rgba(34, 211, 238, 0.35);
+    background-color: rgba(0, 186, 255, 0.06);
+    border-color: rgba(0, 186, 255, 0.28);
     border-left-width: 5px;
     border-left-color: var(--accent-cyan);
-    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.15), 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 28px rgba(34, 211, 238, 0.12);
+    box-shadow: 0 0 0 1px rgba(0, 186, 255, 0.12), 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 28px rgba(0, 186, 255, 0.14);
     transform: translateX(4px);
 }
 
@@ -1192,7 +1213,17 @@ footer { border-top: 1px solid var(--border-color); padding: 40px 20px; margin-t
     /* Ajuste para la navbar en móviles */
     .navbar { flex-direction: column; padding: 20px; gap: 14px; }
     .navbar .logo { text-align: center; }
-    .nav-livecoins { align-self: center; width: 100%; max-width: 280px; }
+    .navbar-livecoins-actions {
+        flex-direction: column;
+        align-self: center;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    .navbar-livecoins-actions .nav-livecoins {
+        width: 100%;
+        max-width: none;
+    }
     
     /* Ajuste de la tarjeta tech en móviles */
     .tech-feature-card { padding: 30px 20px; }
